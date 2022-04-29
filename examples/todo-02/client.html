@@ -1,0 +1,27 @@
+<ul>
+<% for (const item of todoList) { %>
+<li><%= item %></li>
+<% } %>
+</ul>
+<input>
+<button>Add</button>
+<script>
+document.querySelector('button')
+  .addEventListener('click', async () => {
+  	const item = document.querySelector('input').value
+    const response = await fetch('/add', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ item })
+    })
+    const status = await response.json()
+    if (status === 0) {
+      const li = document.createElement('li')
+      li.innerText = item
+      document.querySelector('ul').appendChild(li)
+      document.querySelector('input').value = ''
+    }
+  })
+</script>

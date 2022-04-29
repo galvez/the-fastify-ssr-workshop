@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "fastify": "^3.27.2",
+    "happy-dom": "^2.41.0"
+  }
+}

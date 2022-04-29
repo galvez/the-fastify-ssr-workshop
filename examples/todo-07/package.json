@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "dependencies": {
+    "fastify-dx": "^0.0.25",
+    "ky-universal": "^0.10.0",
+    "tempura": "^0.4.0"
+  }
+}

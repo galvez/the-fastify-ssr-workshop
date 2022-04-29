@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "fastify": "^3.27.2",
+    "lodash.template": "^4.5.0"
+  }
+}
