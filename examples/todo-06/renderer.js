@@ -15,7 +15,6 @@ function compileIndexHtml (source) {
 
 function createRenderFunction (createApp) {
   return async function (fastify, req, reply, url, config) {
-    const { renderer } = config
     const csr = req.query.csr === '1'
     const { ctx, app, router } = await createApp({
       csr,
@@ -27,13 +26,11 @@ function createRenderFunction (createApp) {
       const element = await renderToString(app, ctx)
       return {
         ssrContext: JSON.stringify(ctx),
-        entry: renderer.clientEntryPoint,
         element,
       }
     } else {
       return {
         ssrContext: JSON.stringify(ctx),
-        entry: renderer.clientEntryPoint,
         element: null,
       }
     }

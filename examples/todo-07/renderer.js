@@ -19,7 +19,6 @@ function createRenderFunction (createApp) {
       console.log('Cache hit!')
       return fastify.cache[url]
     }
-    const { renderer } = config
     const { ctx, app, router } = await createApp({
       todoList: fastify.todoList,
     })
@@ -28,7 +27,6 @@ function createRenderFunction (createApp) {
     const element = await renderToString(app, ctx)
     const payload = {
       ssrContext: JSON.stringify(ctx),
-      entry: renderer.clientEntryPoint,
       element,
     }
     fastify.cache[url] = payload

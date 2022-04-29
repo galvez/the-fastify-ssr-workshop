@@ -577,22 +577,19 @@ function compileIndexHtml (source) {
 
 `examples/todo-04/renderer.js`
 
-```js {all|5|7|9|10|11|12|all}
+```js
 import { renderToString } from '@vue/server-renderer'
 
 function createRenderFunction (createApp) {
   return async function (fastify, req, reply, url, config) {
-    const { renderer } = config // Get renderer config
     const { ctx, app, router } = await createApp({
       todoList: fastify.todoList, // Get decorated data object
     })
     router.push(url) // Push URL to VueRouter
     await router.isReady() // Wait for route to render
     const element = await renderToString(app, ctx) // Vue SSR!
-    return { // Return variables to indexHtml template function
-      entry: renderer.clientEntryPoint,
-      element,
-    }
+    // Return variables to indexHtml template function
+    return { element }
   }
 }
 
@@ -606,12 +603,12 @@ function createRenderFunction (createApp) {
 `examples/todo-04/client/index.html`
 
 ```
-{{#expect element, entry }}
+{{#expect element }}
 <!DOCTYPE html>
 <main>{{{ element }}}</main>
 <script 
   type="module"
-  src="{{{ entry }}}">
+  src="/entry/client.js">
 </script>
 ```
 
@@ -794,8 +791,8 @@ _Imports redacted for brevity._
 `examples/todo-04/client/index.html`
 
 ```diff
-- {{#expect element, entry }}
-+ {{#expect ssrContext, element, entry }}
+- {{#expect element }}
++ {{#expect ssrContext, element }}
   <!DOCTYPE html>
 + <script>
 + window.ssrContext = {{{ ssrContext }}};
@@ -803,7 +800,7 @@ _Imports redacted for brevity._
   <main>{{{ element }}}</main>
   <script 
     type="module"
-    src="{{{ entry }}}">
+    src="/entry/client.js">
   </script>
 ```
 

@@ -15,16 +15,12 @@ function compileIndexHtml (source) {
 
 function createRenderFunction (createApp) {
   return async function (fastify, req, reply, url, config) {
-    const { renderer } = config
     const { ctx, app, router } = await createApp({
       todoList: fastify.todoList,
     })
     router.push(url)
     await router.isReady()
     const element = await renderToString(app, ctx)
-    return {
-      entry: renderer.clientEntryPoint,
-      element,
-    }
+    return { element }
   }
 }

@@ -15,7 +15,6 @@ function compileIndexHtml (source) {
 
 function createRenderFunction (createApp) {
   return async function (fastify, req, reply, url, config) {
-    const { renderer } = config
     const { ctx, app, router } = await createApp({
       todoList: fastify.todoList,
     })
@@ -24,7 +23,6 @@ function createRenderFunction (createApp) {
     const element = await renderToString(app, ctx)
     return {
       ssrContext: JSON.stringify(ctx),
-      entry: renderer.clientEntryPoint,
       element,
     }
   }
