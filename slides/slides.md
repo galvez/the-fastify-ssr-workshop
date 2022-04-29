@@ -18,9 +18,22 @@ lineNumbers: false
 
 </div>
 
+
 ---
 
-# What is SSR?
+- I wrote a **Flash 5 ActionScript** book 18 years ago 😬
+- I was in love with **Python** for 10+ years 🐍
+- Dabbled with **Go**, **Kubernetes**, the **DevOps** craft ⚙️
+- Jumped to **Full Stack JavaScript** for no reason 🤡
+- Fell madly in love with **Vue.js** 😍
+- Become core contributor to **Nuxt.js** 🥳
+- Dropped out of Nuxt.js team to focus on Fastify stuff 💅🏻
+- Started as **Engineering Manager** at NearForm! 👨‍💼
+- Still doing a lot **open source** work! 💪
+
+---
+
+# <span class="opacity-0">What is SSR?</span>
 
 # **Server-Side Rendering**<br>
 ## comprises various techniques involved in<br><br>
@@ -30,7 +43,7 @@ lineNumbers: false
 
 ---
 
-# Why SSR? (1)
+# <span class="opacity-0">Why SSR? (1)</span>
 
 # **It's not just about search engines.**<br>
 
@@ -42,7 +55,7 @@ lineNumbers: false
 
 ---
 
-# Why SSR? (2)
+# <span class="opacity-0">Why SSR? (2)</span>
 
 - no **extra round-trips** for data fetching and templating
 - use JavaScript **universally** for backend and frontend
@@ -497,7 +510,7 @@ export const port = 3000
 - Instead of operating on individual files like `fastify-cli`
 - Fastify DX operates on folders with a `server` and `client` module
 - It will always look for a `server.js` or `server.mjs` file
-  - TypeScript support will be added afterwards
+  - TypeScript support will come eventually
 - It will automatically load `vite.config.js`
  - As long as you **define a renderer**
 
@@ -822,7 +835,6 @@ _Imports redacted for brevity._
       const element = await renderToString(app, ctx)
       return {
 +       ssrContext: JSON.stringify(ctx),
-        entry: renderer.clientEntryPoint,
         element,
       }
     }
@@ -904,7 +916,7 @@ _Imports redacted for brevity._
 # **Can you add fallback to CSR?**
 
 - Start with a copy of `examples/todo-05`.
-- **Hint**: For CSR fallback we still need to server data (`ssrContext`)
+- **Hint**: For CSR fallback we still need the server data (`ssrContext`)
 - **Hint**: Vue exports `createApp` and `createSSRApp` functions<br>
 - **Solution**: `examples/todo-06`
 - **Files changed**:
@@ -919,6 +931,7 @@ _Imports redacted for brevity._
 - Start with a copy of `examples/todo-05`.
 - **Hint**: Fastify has `onRequest` and `onSend` hooks
 - **Hint**: You can cache the render function directly though
+- **Hint**: Don't forget about invalidation!
 - **Solution**: `examples/todo-07`
 - **Files changed**:
   - `renderer.js`
