@@ -924,6 +924,7 @@ _Imports redacted for brevity._
 - **Hint**: You can cache the render function directly though
 - **Solution**: `examples/todo-07`
 - **Files changed**:
+  - `renderer.js`
   - `server.js`
 
 ---
