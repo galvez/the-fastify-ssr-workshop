@@ -933,7 +933,7 @@ _Imports redacted for brevity._
 
 - Follow me on Twitter 😊
   - **[@anothergalvez](https://twitter.com/anothergalvez)**
-- Fastify DX Status
+- **Fastify DX** Status
   - Under **active development**
   - Good right now for **playing in dev mode**
   - Deployment **build and documention still WIP**
