@@ -856,7 +856,7 @@ _Imports redacted for brevity._
 
 ---
 
-# Scaling SSR with Fastify
+# Scaling SSR
 
 ## No matter what framework you choose, SSR is expensive.<br><br>
 ## At scale, it takes a lot of CPU/memory to stay fast.<br><br>
@@ -866,7 +866,7 @@ _Imports redacted for brevity._
 
 <div style="opacity: 0.5">
 
-# Scaling SSR with Fastify
+# Scaling SSR
 
 ## No matter what framework you choose, SSR is expensive.<br><br>
 ## At scale, it takes a lot of CPU/memory to stay fast.<br><br>
@@ -880,7 +880,7 @@ _Imports redacted for brevity._
 
 <div style="opacity: 0.5">
 
-# Scaling SSR with Fastify
+# Scaling SSR
 
 ## No matter what framework you choose, SSR is expensive.<br><br>
 ## At scale, it takes a lot of CPU/memory to stay fast.<br><br>
